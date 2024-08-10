@@ -50,13 +50,13 @@ for r in range(R):
     Zgrid = np.hstack((Zgrid1, Zgrid2))  
 
     # Generate error term
-    a = (Z1 + Z2) @ theta0 / (4 * T * sigma_z)  # fixed effect
+    a = (Z1 + Z2) @ theta0 / (4 * T * sigma_z)    # fixed effect
     ep = multivariate_normal.rvs(mean=mu, cov=sigma, size=N)  # time changing error
 
     # Dependent variable
     b2 = -1       # threshold of ordered choice
     b3 = 1
-    Ystar = np.array([ep[:, 0] + a + Z1 @ theta0, ep[:, 1] + a + Z2 @ theta0]).T  # latent dependent variable
+    Ystar = np.array([ep[:, 0] + a + Z1 @ theta0, ep[:, 1] + a + Z2 @ theta0]).T   # latent dependent variable
     Y = 1 * (Ystar <= b2) + 2 * ((Ystar > b2) & (Ystar <= b3)) + 3 * (Ystar > b3)  # observed dependent variable
     
     # Define conditional moment function within the simulation loop
