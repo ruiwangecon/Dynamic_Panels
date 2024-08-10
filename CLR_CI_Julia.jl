@@ -1,6 +1,7 @@
 # this code is for the project 'Identification of Nonlinear Dynamic Panels under Partial Stationarity', by Wayne Gao and Rui Wang
 # it is implemneting CLR inference method to compute confidence interval for the static ordered choice model
 
+# Packages
 using Random, LinearAlgebra, Distributions
 using StableRNGs: StableRNG
 
